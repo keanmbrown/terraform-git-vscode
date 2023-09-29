@@ -11,7 +11,7 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "bfhrg" {
+resource "azurerm_resource_group" "bfh" {
   name     = "bfh"
   location = "East Us"
   tags = {
@@ -87,8 +87,6 @@ resource "azurerm_linux_virtual_machine" "lvm1" {
   size                  = "Standard_B1s"
   admin_username        = "adminuser"
   network_interface_ids = [azurerm_network_interface.nic1.id]
-
-  custom_data = filebase64("customdata.tpl")
 
   admin_ssh_key {
     username   = "adminuser"
